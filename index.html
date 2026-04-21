@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>تسجيل الدخول</title>
+</head>
+
+<body style="text-align:center; margin-top:100px;">
+
+<h2>🔐 تسجيل الدخول</h2>
+
+<!-- تسجيل الدخول -->
+<form action="/login" method="POST">
+    <input type="text" name="username" placeholder="اسم المستخدم" required><br><br>
+    <input type="password" name="password" placeholder="كلمة المرور" required><br><br>
+    <button type="submit">دخول</button>
+</form>
+
+<hr style="width:300px; margin:30px auto;">
+
+<h2>🆕 إنشاء حساب</h2>
+
+<!-- تسجيل حساب جديد -->
+<form action="/register" method="POST">
+    <input type="text" name="username" placeholder="اسم مستخدم جديد" required><br><br>
+    <input type="password" name="password" placeholder="كلمة مرور" required><br><br>
+    <button type="submit">تسجيل</button>
+</form>
+
+</body>
+</html>

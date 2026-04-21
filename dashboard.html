@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>لوحة التحكم</title>
+</head>
+
+<body style="text-align:center;">
+
+<h2>💬 الشات المباشر</h2>
+
+<div id="messages" style="border:1px solid black; height:200px; overflow:auto;"></div>
+
+<input id="msg" placeholder="اكتب رسالة">
+<button onclick="send()">إرسال</button>
+
+<br><br>
+
+<a href="/logout">
+    <button>تسجيل خروج 🚪</button>
+</a>
+
+<!-- Socket.io -->
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+    const socket = io();
+
+    function send() {
+        const input = document.getElementById("msg");
+        socket.emit("chat message", input.value);
+        input.value = "";
+    }
+
+    socket.on("chat message", function(msg) {
+        const div = document.getElementById("messages");
+        div.innerHTML += "<p>" + msg + "</p>";
+    });
+</script>
+
+</body>
+</html>
