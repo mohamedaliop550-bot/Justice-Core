@@ -2,30 +2,228 @@
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
-    <title>تسجيل الدخول</title>
+    <title>بثوث سيرفر Justice Core</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: radial-gradient(circle at top, #1a1a1a, #0b0b0b);
+            text-align: center;
+            color: white;
+        }
+
+        /* 🔥 العنوان */
+        h1 {
+            margin-top: 30px;
+            color: orange;
+            font-size: 32px;
+            text-shadow:
+                    0 0 5px orange,
+                    0 0 10px orange,
+                    0 0 20px orange,
+                    0 0 40px #ff5e00,
+                    0 0 60px #ff5e00;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 5px orange; }
+            to { text-shadow: 0 0 40px orange; }
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        /* 💀 كرت احترافي */
+        .card {
+            position: relative;
+            background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+            border-radius: 20px;
+            padding: 20px;
+            width: 220px;
+            transition: 0.4s;
+            overflow: hidden;
+        }
+
+        /* 🔥 إطار متحرك */
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            border-radius: 20px;
+            background: linear-gradient(45deg, orange, #ff5e00, orange, #ff9900);
+            background-size: 300% 300%;
+            animation: borderMove 4s linear infinite;
+            z-index: -1;
+        }
+
+        .card::after {
+            content: "";
+            position: absolute;
+            inset: 2px;
+            background: #1c1c1c;
+            border-radius: 18px;
+            z-index: -1;
+        }
+
+        @keyframes borderMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 300% 50%; }
+        }
+
+        .card:hover {
+            transform: scale(1.07);
+        }
+
+        /* 🔥 LIVE */
+        .card.live {
+            transform: scale(1.12);
+        }
+
+        .card.live::before {
+            background: linear-gradient(45deg, red, orange, red);
+            animation: borderMove 1.5s linear infinite;
+        }
+
+        .card.live::after {
+            box-shadow:
+                    0 0 20px rgba(255,0,0,0.5),
+                    inset 0 0 30px rgba(255,100,0,0.3);
+        }
+
+        /* الصورة */
+        .card img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 3px solid orange;
+            box-shadow:
+                    0 0 10px orange,
+                    0 0 20px orange,
+                    0 0 40px #ff5e00;
+        }
+
+        .status {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #555;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-size: 12px;
+        }
+
+        .status.live {
+            background: red;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 8px 20px;
+            border-radius: 12px;
+            border: none;
+            background: linear-gradient(45deg, orange, #ff5e00);
+            color: white;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
-<body style="text-align:center; margin-top:100px;">
+<body>
 
-<h2>🔐 تسجيل الدخول</h2>
+<h1>🎮 بثوث سيرفر Justice Core</h1>
 
-<!-- تسجيل الدخول -->
-<form action="/login" method="POST">
-    <input type="text" name="username" placeholder="اسم المستخدم" required><br><br>
-    <input type="password" name="password" placeholder="كلمة المرور" required><br><br>
-    <button type="submit">دخول</button>
-</form>
+<div class="container" id="container"></div>
 
-<hr style="width:300px; margin:30px auto;">
+<script>
 
-<h2>🆕 إنشاء حساب</h2>
+    let channels = [
+        {
+            name: "absi",
+            image: "https://files.kick.com/images/user/27894320/profile_image/conversion/951102c4-68da-415c-a344-d6dbaec3fb05-fullsize.webp",
+            link: "https://kick.com/absi"
+        },
+        {
+            name: "team_wolf",
+            image: "https://files.kick.com/images/user/5732869/profile_image/conversion/279747f2-0d97-476d-a11f-2c91773a316f-fullsize.webp",
+            link: "https://kick.com/team_wolf"
+        },
+        {
+            name: "odayyouyou",
+            image: "https://files.kick.com/images/user/30488024/profile_image/conversion/1660d743-f9c4-4c52-8dbd-5d054de3aa9f-fullsize.webp",
+            link: "https://kick.com/odayyouyou"
+        },
+        {
+            name: "zrzor96",
+            image: "https://files.kick.com/images/user/16853290/profile_image/conversion/9d6de68c-695b-4d2d-9c39-f935c53c49d2-fullsize.webp",
+            link: "https://kick.com/zrzor96"
+        },
+        {
+            name: "bozo96",
+            image: "https://files.kick.com/images/user/8359583/profile_image/conversion/13232a7e-e8a5-40dc-9334-5a17daf70072-fullsize.webp",
+            link: "https://kick.com/bozo96"
+        }
+    ];
 
-<!-- تسجيل حساب جديد -->
-<form action="/register" method="POST">
-    <input type="text" name="username" placeholder="اسم مستخدم جديد" required><br><br>
-    <input type="password" name="password" placeholder="كلمة مرور" required><br><br>
-    <button type="submit">تسجيل</button>
-</form>
+    function openStream(link) {
+        window.open(link, "_blank");
+    }
+
+    function render() {
+        let container = document.getElementById("container");
+        container.innerHTML = "";
+
+        let live = channels.find(c => c.status === "live");
+        let others = channels.filter(c => c.status !== "live");
+
+        let ordered = live
+            ? [...others.slice(0, Math.floor(others.length/2)), live, ...others.slice(Math.floor(others.length/2))]
+            : channels;
+
+        ordered.forEach(ch => {
+            let div = document.createElement("div");
+            div.className = "card";
+
+            if (ch.status === "live") div.classList.add("live");
+
+            div.innerHTML = `
+            <div class="status ${ch.status || "offline"}">
+                ${(ch.status || "offline").toUpperCase()}
+            </div>
+            <img src="${ch.image}">
+            <h3>${ch.name}</h3>
+            <button onclick="openStream('${ch.link}')">دخول</button>
+        `;
+
+            container.appendChild(div);
+        });
+    }
+
+    async function updateStatus() {
+        try {
+            for (let ch of channels) {
+                let res = await fetch(`/status/${ch.name}`);
+                let data = await res.json();
+                ch.status = data.status;
+            }
+        } catch (err) {
+            console.log("API error:", err);
+        }
+
+        render();
+    }
+
+    channels.forEach(ch => ch.status = "offline");
+    render();
+    updateStatus();
+
+</script>
 
 </body>
 </html>

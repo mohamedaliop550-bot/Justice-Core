@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>Justice Core</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: radial-gradient(circle at top, #1a1a1a, #000);
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 80px;
+            font-size: 40px;
+            color: orange;
+            text-shadow:
+                    0 0 10px orange,
+                    0 0 30px #ff5e00,
+                    0 0 60px #ff5e00;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        .box {
+            margin: 50px auto;
+            width: 80%;
+            max-width: 600px;
+            padding: 30px;
+            border-radius: 20px;
+            background: #111;
+
+            box-shadow:
+                    0 0 20px rgba(255,140,0,0.3),
+                    inset 0 0 20px rgba(255,140,0,0.2);
+        }
+
+        button {
+            margin-top: 30px;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 15px;
+            border: none;
+            background: linear-gradient(45deg, orange, #ff5e00);
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        .twitter {
+            margin-top: 25px;
+            font-size: 16px;
+        }
+
+        .twitter a {
+            color: orange;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>🎮 أهلاً وسهلاً في Justice Core</h1>
+
+<div class="box">
+
+    <p>
+        نورت الموقع 👋<br><br>
+        هذا الموقع يعرض بثوث لاعبين السيرفر بشكل مباشر 🔥<br>
+        تقدر تشوف مين لايف وتدخل على البث بسهولة 🎥
+    </p>
+
+    <div class="twitter">
+        🐦 هاي صفحة السيرفر الرسمية على تويتر (X)<br><br>
+
+        <a href="https://x.com/justice_xcore?s=21" target="_blank">
+            🔗 زيارة تويتر السيرفر
+        </a>
+    </div>
+
+    <button onclick="enterSite()">دخول الموقع</button>
+
+</div>
+
+<script>
+    function enterSite() {
+        window.location.href = "index.html";
+    }
+</script>
+
+</body>
+</html>
