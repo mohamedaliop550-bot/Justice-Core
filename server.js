@@ -3,7 +3,7 @@ const path = require("path");
 
 const app = express();
 
-// يخدم كل الملفات (HTML, CSS, JS)
+// يخدم كل الملفات (مهم جداً)
 app.use(express.static(__dirname));
 
 // الصفحة الرئيسية (home.html)
