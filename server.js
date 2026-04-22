@@ -4,17 +4,12 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// السماح بتحميل كل الملفات (html, css, js)
+// يخلي كل الملفات (html, css, js) تشتغل
 app.use(express.static(__dirname));
 
-// الصفحة الرئيسية (صفحة الترحيب)
+// الصفحة الرئيسية (ترحيب)
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'home.html'));
-});
-
-// صفحة الموقع
-app.get('/index.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.listen(PORT, () => {
